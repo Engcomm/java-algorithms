@@ -1,0 +1,1 @@
+This library holds implementations of standard algorithms and data structures implemented in Java. Generally based upon those described in [Introduction to Algorithms](http://en.wikipedia.org/wiki/Introduction_to_Algorithms).
