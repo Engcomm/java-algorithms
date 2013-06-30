@@ -1,5 +1,14 @@
 package uk.co.chrisloy.sandpit;
 
+/**
+ * Stack implementation which uses object references between
+ * contained Nodes to represent the stack. No limit to upper
+ * size.
+ * 
+ * @author Chris Loy
+ *
+ * @param <T>
+ */
 public class LinkedStack<T> implements Stack<T> {
 	
 	private class Node {
@@ -19,25 +28,28 @@ public class LinkedStack<T> implements Stack<T> {
 		this.top = null;
 	}
 	
-	/* (non-Javadoc)
-	 * @see uk.co.chrisloy.sandpit.Stack#isEmpty()
-	 */
 	@Override
 	public boolean isEmpty() {
 		return top == null;
 	}
 	
-	/* (non-Javadoc)
-	 * @see uk.co.chrisloy.sandpit.Stack#push(T)
-	 */
 	@Override
 	public void push(T value) {
 		this.top = new Node(value, top);
 	}
 	
-	/* (non-Javadoc)
-	 * @see uk.co.chrisloy.sandpit.Stack#pop()
-	 */
+	@Override
+	public boolean contains(T value) {
+	    Node curr = top;
+	    while(curr != null) {
+	        if(curr.equals(value)) {
+	            return true;
+	        }
+	        curr = curr.next;
+	    }
+	    return false;
+	}
+	
 	@Override
 	public T pop() {
 		if(top != null) {
@@ -48,4 +60,25 @@ public class LinkedStack<T> implements Stack<T> {
 			return null;
 		}
 	}
+	
+	@Override
+	public T peek() {
+	    return top.value;
+	}
+    
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Stack:[");
+        Node curr = top;
+        while(curr != null) {
+            sb.append(curr.value);
+            if(curr.next != null) {
+                sb.append(", ");
+            }
+            curr = curr.next;
+        }
+        sb.append("]");
+        return sb.toString();
+    }
 }

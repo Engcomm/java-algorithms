@@ -1,5 +1,12 @@
 package uk.co.chrisloy.sandpit;
 
+/**
+ * Array-based implementation of a last-in-first-out stack.
+ * 
+ * @author Chris Loy
+ *
+ * @param <T>
+ */
 public class ArrayStack<T> implements Stack<T> {
 	
 	private final Object[] arr;
@@ -19,6 +26,16 @@ public class ArrayStack<T> implements Stack<T> {
 	public void push(T value) {
 		arr[++top] = value;
 	}
+	
+	@Override
+	public boolean contains(T value) {
+	    for (Object o : arr) {
+	        if (value.equals(o)) {
+	            return true;
+	        }
+	    }
+	    return false;
+	}
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -28,5 +45,11 @@ public class ArrayStack<T> implements Stack<T> {
 		} else {
 			return (T)arr[top--];
 		}
+	}
+	
+	@SuppressWarnings("unchecked")
+    @Override
+    public T peek() {
+	    return (T)arr[top];
 	}
 }

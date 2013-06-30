@@ -1,5 +1,14 @@
 package uk.co.chrisloy.sandpit;
 
+/**
+ * First-in-first-out queue implementation which uses references
+ * between adjacent nodes in the queue to provide structure. No
+ * limit to upper size.
+ * 
+ * @author Chris Loy
+ *
+ * @param <T>
+ */
 public class LinkedQueue<T> implements Queue<T> {
 	
 	private class Node {

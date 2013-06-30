@@ -2,15 +2,19 @@ package uk.co.chrisloy.sandpit;
 
 public interface Stack<T> {
 
-	public abstract boolean isEmpty();
+	public boolean isEmpty();
 
-	public abstract void push(T value);
+	public void push(T value);
 
 	/**
 	 * Returns null if empty.
 	 * 
 	 * @return
 	 */
-	public abstract T pop();
+	public T pop();
+	
+	public T peek();
+	
+	public boolean contains(T value);
 
 }

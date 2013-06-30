@@ -38,6 +38,7 @@ public class SortTest {
 		examine(new QuickSort<Integer>());
 		examine(new HeapSort<Integer>());
 		examine(new MergeSort<Integer>());
+		//examine(new BubbleSort<Integer>()); too slow!
 	}
 	
 	private void examine(Sort<Integer> sort) {
